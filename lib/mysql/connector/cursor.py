@@ -1087,8 +1087,8 @@ class MySQLCursorPrepared(MySQLCursor):
         first closed.
         """
         if type(params) == dict:
-            replaced_fields = re.findall(self.RE_SQL_FIND_PYTHON_STRING_PARAM, operation)
-            operation = re.sub(self.RE_SQL_FIND_PYTHON_STRING_PARAM, '?', operation)
+            replaced_fields = re.findall(RE_SQL_FIND_PYTHON_STRING_PARAM, operation)
+            operation = re.sub(RE_SQL_FIND_PYTHON_STRING_PARAM, '?', operation)
             if len(params) != len(replaced_fields):
                 raise errors.ProgrammingError(
                         "Not all parameters were used in the SQL statement")
